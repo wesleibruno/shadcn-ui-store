@@ -1,13 +1,19 @@
-import { ModeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { TabSkeleton } from "@/components/products/skeleton";
+import { ProductsTab } from "@/components/products/tab";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <div>
-      <div className="absolute top-4 right-4">
-        <ModeToggle />
+    <div className="w-full max-w max-w-4xl mx-auto">
+      <Header />
+      <div className="mx-3">
+        <Suspense fallback={<TabSkeleton />}>
+          <ProductsTab />
+        </Suspense>
       </div>
-      <Button>Button</Button>
+      <Footer />
     </div>
   );
 }
