@@ -38,7 +38,7 @@ export const ProductsTab = async () => {
   const defaultValue = tabs[randomIndex].value;
 
   return (
-    <Tabs defaultValue={defaultValue}>
+    <Tabs defaultValue="sushi">
       <TabsList className="flex">
         {tabs.map((item) => (
           <TabsTrigger className="flex-1" key={item.value} value={item.value}>
@@ -50,9 +50,9 @@ export const ProductsTab = async () => {
         <TabsContent key={item.value} className="mt-6" value={item.value}>
           {item.products.length > 0 && (
             <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-             {item.products.map((product) => (
-               <ProductItem key={product.id} item={product} />
-             ))}
+              {item.products.map((product) => (
+                <ProductItem key={product.id} item={product} />
+              ))}
             </div>
           )}
           {item.products.length === 0 && <ProductEmpty />}
